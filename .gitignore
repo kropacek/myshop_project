@@ -1,4 +1,4 @@
 .venv/
 .idea/
-products/
+media/
 db.sqlite3
