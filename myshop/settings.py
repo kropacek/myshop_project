@@ -137,3 +137,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CART_SESSION_ID = 'cart_app'
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'echere221@gmail.com'
+EMAIL_HOST_PASSWORD = 'mzto mxfc cdig rras'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
