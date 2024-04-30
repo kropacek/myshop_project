@@ -47,7 +47,10 @@ class Cart:
         if override_quantity:
             self.cart[product_id]['quantity'] = quantity
         else:
-            self.cart[product_id]['quantity'] += quantity
+            if self.cart[product_id]['quantity'] + quantity > 20:
+                self.cart[product_id]['quantity'] = 20
+            else:
+                self.cart[product_id]['quantity'] += quantity
 
         self.save()
 
