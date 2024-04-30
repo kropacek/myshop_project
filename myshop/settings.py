@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop_app.apps.ShopAppConfig',
     'cart_app.apps.CartAppConfig',
+    'order_app.apps.OrderAppConfig',
     'easy_thumbnails',
 ]
 
