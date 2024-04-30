@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shop_app.apps.ShopAppConfig',
+    'cart_app.apps.CartAppConfig',
     'easy_thumbnails',
 ]
 
@@ -132,3 +133,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+CART_SESSION_ID = 'cart_app'
