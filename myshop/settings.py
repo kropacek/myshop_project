@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'django-insecure-71k=w$6!-r2xse!7+nh$s&w8g)u0m)8f_(!xf+-!vt6$c_ak_-
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -40,6 +38,7 @@ INSTALLED_APPS = [
     'shop_app.apps.ShopAppConfig',
     'cart_app.apps.CartAppConfig',
     'order_app.apps.OrderAppConfig',
+    'payment_app.apps.PaymentAppConfig',
     'easy_thumbnails',
 ]
 
@@ -75,7 +74,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myshop.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -85,7 +83,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -105,7 +102,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -116,7 +112,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -135,12 +130,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 CART_SESSION_ID = 'cart_app'
 
-
+# Настроечные параметры Email-рассылки
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'echere221@gmail.com'
 EMAIL_HOST_PASSWORD = 'mzto mxfc cdig rras'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+# Настроечные параметры Stripe
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51PBtUHRr6GAVrD7HD0eeGsvT5Js8u8BN3uzmuC6JEIeD9NdVyNuoZI0NsgGLFRDUT6TnKsqHQwCmE6EXOhsaAsGy00zY8fnXVi'  # Публикуемый ключ
+STRIPE_SECRET_KEY = 'sk_test_51PBtUHRr6GAVrD7HiyUZFSpEjMR93q18wEAp0BJfumlTKLN0rQp8ry1z9wj6jgUdD6nkcAvJeZosdLBJuSRKTUrQ00DoUG92QT'  # Секретный ключ
+STRIPE_API_VERSION = '2022-08-01'
