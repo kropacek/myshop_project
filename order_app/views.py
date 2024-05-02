@@ -1,5 +1,6 @@
+from django.contrib.admin.views.decorators import staff_member_required
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 
 from .models import Order, OrderItem
@@ -40,3 +41,14 @@ def order_create(request):
     }
 
     return render(request, 'orders/order/create.html', context = context)
+
+
+@staff_member_required
+def admin_order_detail(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+
+    context = {
+        'order': order,
+    }
+
+    return render(request, 'admin/orders/order/detail.html', context=context)
