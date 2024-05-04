@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'cart_app.apps.CartAppConfig',
     'order_app.apps.OrderAppConfig',
     'payment_app.apps.PaymentAppConfig',
+    'coupon_app.apps.CouponAppConfig',
     'easy_thumbnails',
 ]
 
