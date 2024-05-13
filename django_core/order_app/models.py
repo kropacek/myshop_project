@@ -1,7 +1,10 @@
 from django.conf import settings
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from decimal import Decimal
 
 from shop_app.models import Product
+from coupon_app.models import Coupon
 
 
 class Order(models.Model):
@@ -17,6 +20,16 @@ class Order(models.Model):
 
     stripe_id = models.CharField(max_length=250, blank=True, verbose_name='stripe_id')
 
+    coupon = models.ForeignKey(Coupon,
+                               related_name='orders',
+                               null=True,
+                               blank=True,
+                               on_delete=models.CASCADE,
+                               verbose_name='coupon')
+
+    discount = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)],
+                                   verbose_name='discount')
+
     class Meta:
         ordering = ['-created']
         verbose_name = 'Order'
@@ -29,8 +42,16 @@ class Order(models.Model):
     def __str__(self):
         return f'Order {self.id}'
 
-    def get_total_cost(self):
+    def get_total_cost_before_discount(self):
         return sum(item.get_cost() for item in self.items.all())
+
+    def get_discount(self):
+        if self.discount:
+            return self.get_total_cost_before_discount()  * (self.discount / Decimal(100))
+        return Decimal(0)
+
+    def get_total_cost(self):
+        return self.get_total_cost_before_discount() - self.get_discount()
 
     def get_stripe_url(self):
         if not self.stripe_id:

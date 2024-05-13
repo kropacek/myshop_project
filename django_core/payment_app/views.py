@@ -2,7 +2,9 @@ from decimal import Decimal
 import stripe
 from django.conf import settings
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+
 from order_app.models import Order
+from cart_app.cart import Cart
 
 # создать экземпляр Stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -38,6 +40,17 @@ def payment_process(request):
                 },
                 'quantity': item.quantity,
             })
+
+        if order.coupon:
+            stripe_coupon = stripe.Coupon.create(
+                name=order.coupon.code,
+                duration='once',
+                percent_off=order.discount,
+            )
+
+            session_data['discounts'] = [{
+                'coupon': stripe_coupon.id
+            }]
 
         # создать сеанс оформления платежа Stripe
         session = stripe.checkout.Session.create(**session_data)

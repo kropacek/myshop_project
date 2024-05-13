@@ -48,13 +48,46 @@
           </tr>
         {% endwith %}
       {% endfor %}
+
+      {% if cart.coupon %}
+        <tr class="subtotal">
+          <td>Subtotal</td>
+          <td colspan="4"></td>
+          <td class="num">${{ cart.get_total_price|floatformat:2 }}</td>
+        </tr>
+        <tr>
+          <td>
+            "{{ cart.coupon.code }}" coupon
+            ({{ cart.coupon.discount }}% off)
+          </td>
+          <td colspan="4"></td>
+          <td class="num neg">
+             – ${{ cart.get_discount|floatformat:2 }}
+          </td>
+        </tr>
+      {% endif %}
+
       <tr class="total">
         <td>Total</td>
         <td colspan="4"></td>
-        <td class="num">${{ cart.get_total_price }}</td>
+        <td class="num">${{ cart.get_total_price_after_discount|floatformat:2 }}</td>
       </tr>
     </tbody>
   </table>
+  {% if not cart.coupon %}
+  <p>Apply a coupon:</p>
+    <form action="{% url "coupon_app:coupon_apply" %}" method="post">
+          <label for="id_code">Code:</label>
+          <input type="text" name="code" required id="id_code">
+        <input type="submit" value="Apply">
+        {% csrf_token %}
+    </form>
+  {% else %}
+    <form action="{% url "coupon_app:coupon_delete" %}" method="post">
+        <input type="submit" value="Delete a coupon">
+        {% csrf_token %}
+    </form>
+  {% endif %}
   <p class="text-right">
     <a href="{% url "shop_app:product_list" %}" class="button
     light">Continue shopping</a>
