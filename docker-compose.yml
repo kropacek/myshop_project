@@ -20,6 +20,12 @@ services:
       - celery
       - rabbit
 
+  redis:
+    image: redis:7.0.4
+    restart: always
+    expose:
+      - 6379
+
 
   rabbit:
     image: rabbitmq:management
@@ -53,4 +59,6 @@ services:
     command: listen --api-key=sk_test_51PBtUHRr6GAVrD7HiyUZFSpEjMR93q18wEAp0BJfumlTKLN0rQp8ry1z9wj6jgUdD6nkcAvJeZosdLBJuSRKTUrQ00DoUG92QT --device-name=nikolay --forward-to=web:8000/payment/webhook/
     depends_on:
       - web
+
+
 

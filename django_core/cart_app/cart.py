@@ -76,7 +76,10 @@ class Cart:
         self.delete_coupon()
 
     def delete_coupon(self):
-        del self.session['coupon_id']
+        try:
+            del self.session['coupon_id']
+        except KeyError:
+            pass
         self.save()
 
     def get_total_price(self):
