@@ -6,6 +6,7 @@ from celery import shared_task
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
+from django.utils.translation import gettext_lazy as _
 
 from order_app.models import Order
 
@@ -14,8 +15,8 @@ from order_app.models import Order
 def payment_completed(order_id):
     order = Order.objects.get(id=order_id)
 
-    subject = f'My Shop – Invoice no. {order.id}'
-    message = 'Please, find attached the invoice for your recent purchase.'
+    subject = _(f'My Shop – Invoice no. {order.id}')
+    message = _('Please, find attached the invoice for your recent purchase.')
     email = EmailMessage(subject,
                          message,
                          f'{settings.EMAIL_HOST_USER}',

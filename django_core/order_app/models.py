@@ -2,38 +2,39 @@ from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from decimal import Decimal
+from django.utils.translation import gettext_lazy as _
 
 from shop_app.models import Product
 from coupon_app.models import Coupon
 
 
 class Order(models.Model):
-    first_name = models.CharField(max_length=50, verbose_name='first_name')
-    last_name = models.CharField(max_length=50, verbose_name='last_name')
-    email = models.EmailField(verbose_name='email')
-    address = models.CharField(max_length=250, verbose_name='address')
-    postal_code = models.CharField(max_length=20, verbose_name='postal_code')
-    city = models.CharField(max_length=100, verbose_name='city')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='created')
-    updated = models.DateTimeField(auto_now=True, verbose_name='updated')
-    paid = models.BooleanField(default=False, verbose_name='paid')
+    first_name = models.CharField(max_length=50, verbose_name=_('first_name'))
+    last_name = models.CharField(max_length=50, verbose_name=_('last_name'))
+    email = models.EmailField(verbose_name=_('email'))
+    address = models.CharField(max_length=250, verbose_name=_('address'))
+    postal_code = models.CharField(max_length=20, verbose_name=_('postal_code'))
+    city = models.CharField(max_length=100, verbose_name=_('city'))
+    created = models.DateTimeField(auto_now_add=True, verbose_name=_('created'))
+    updated = models.DateTimeField(auto_now=True, verbose_name=_('updated'))
+    paid = models.BooleanField(default=False, verbose_name=_('paid'))
 
-    stripe_id = models.CharField(max_length=250, blank=True, verbose_name='stripe_id')
+    stripe_id = models.CharField(max_length=250, blank=True, verbose_name=_('stripe_id'))
 
     coupon = models.ForeignKey(Coupon,
                                related_name='orders',
                                null=True,
                                blank=True,
                                on_delete=models.CASCADE,
-                               verbose_name='coupon')
+                               verbose_name=_('coupon'))
 
     discount = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)],
-                                   verbose_name='discount')
+                                   verbose_name=_('discount'))
 
     class Meta:
         ordering = ['-created']
-        verbose_name = 'Order'
-        verbose_name_plural = 'Orders'
+        verbose_name = _('Order')
+        verbose_name_plural = _('Orders')
 
     indexes = [
         models.Index(fields=['-created']),
@@ -64,10 +65,10 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE, verbose_name='orders')
-    product = models.ForeignKey(Product, related_name='order_items', on_delete=models.CASCADE, verbose_name='product')
-    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='price')
-    quantity = models.PositiveIntegerField(default=1, verbose_name='quantity')
+    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE, verbose_name=_('orders'))
+    product = models.ForeignKey(Product, related_name='order_items', on_delete=models.CASCADE, verbose_name=_('product'))
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_('price'))
+    quantity = models.PositiveIntegerField(default=1, verbose_name=_('quantity'))
 
     def __str__(self):
         return str(self.id)
@@ -76,5 +77,5 @@ class OrderItem(models.Model):
         return self.price * self.quantity
 
     class Meta:
-        verbose_name = 'OrderItem'
-        verbose_name_plural = 'OrderItems'
+        verbose_name = _('Order Item')
+        verbose_name_plural = _('Order Items')

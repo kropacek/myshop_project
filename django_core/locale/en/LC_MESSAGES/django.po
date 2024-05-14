@@ -1,0 +1,505 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-14 22:31+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\cart_app\apps.py:8
+msgid "cart"
+msgstr ""
+
+#: .\cart_app\forms.py:7 .\order_app\models.py:71
+msgid "quantity"
+msgstr ""
+
+#: .\cart_app\forms.py:8
+msgid "override"
+msgstr ""
+
+#: .\coupon_app\apps.py:8 .\order_app\models.py:29
+#: .\templates\cart\detail.html:61 .\templates\orders\order\pdf.html:48
+#: .\templates\payment\process.html:42
+msgid "coupon"
+msgstr ""
+
+#: .\coupon_app\forms.py:6 .\coupon_app\models.py:7
+msgid "code"
+msgstr ""
+
+#: .\coupon_app\models.py:9
+msgid "valid from"
+msgstr ""
+
+#: .\coupon_app\models.py:10
+msgid "valid to"
+msgstr ""
+
+#: .\coupon_app\models.py:15 .\order_app\models.py:32
+msgid "discount"
+msgstr ""
+
+#: .\coupon_app\models.py:18
+msgid "active"
+msgstr ""
+
+#: .\coupon_app\models.py:24
+msgid "Coupon"
+msgstr ""
+
+#: .\coupon_app\models.py:25
+msgid "Coupons"
+msgstr ""
+
+#: .\coupon_app\urls.py:10
+msgid "apply/"
+msgstr ""
+
+#: .\coupon_app\urls.py:11
+msgid "delete/"
+msgstr ""
+
+#: .\myshop\settings.py:121
+msgid "English"
+msgstr ""
+
+#: .\myshop\settings.py:122
+msgid "Russian"
+msgstr ""
+
+#: .\myshop\urls.py:30
+msgid "cart/"
+msgstr ""
+
+#: .\myshop\urls.py:31
+msgid "orders/"
+msgstr ""
+
+#: .\myshop\urls.py:32
+msgid "payment/"
+msgstr ""
+
+#: .\myshop\urls.py:33
+msgid "coupons/"
+msgstr ""
+
+#: .\order_app\apps.py:8
+msgid "order"
+msgstr ""
+
+#: .\order_app\forms.py:14
+msgid "First name"
+msgstr ""
+
+#: .\order_app\forms.py:15
+msgid "Last name"
+msgstr ""
+
+#: .\order_app\forms.py:16
+msgid "Email"
+msgstr ""
+
+#: .\order_app\forms.py:17 .\templates\admin\orders\order\detail.html:41
+msgid "Address"
+msgstr ""
+
+#: .\order_app\forms.py:18
+msgid "Postal code"
+msgstr ""
+
+#: .\order_app\forms.py:19
+msgid "City"
+msgstr ""
+
+#: .\order_app\models.py:12
+msgid "first_name"
+msgstr ""
+
+#: .\order_app\models.py:13
+msgid "last_name"
+msgstr ""
+
+#: .\order_app\models.py:14
+msgid "email"
+msgstr ""
+
+#: .\order_app\models.py:15
+msgid "address"
+msgstr ""
+
+#: .\order_app\models.py:16
+msgid "postal_code"
+msgstr ""
+
+#: .\order_app\models.py:17
+msgid "city"
+msgstr ""
+
+#: .\order_app\models.py:18 .\shop_app\models.py:40
+msgid "created"
+msgstr ""
+
+#: .\order_app\models.py:19 .\shop_app\models.py:41
+msgid "updated"
+msgstr ""
+
+#: .\order_app\models.py:20
+msgid "paid"
+msgstr ""
+
+#: .\order_app\models.py:22
+msgid "stripe_id"
+msgstr ""
+
+#: .\order_app\models.py:36 .\templates\admin\orders\order\detail.html:12
+#: .\templates\admin\orders\order\detail.html:19
+msgid "Order"
+msgstr ""
+
+#: .\order_app\models.py:37 .\templates\admin\orders\order\detail.html:11
+msgid "Orders"
+msgstr ""
+
+#: .\order_app\models.py:68
+msgid "orders"
+msgstr ""
+
+#: .\order_app\models.py:69
+msgid "product"
+msgstr ""
+
+#: .\order_app\models.py:70 .\shop_app\models.py:38
+msgid "price"
+msgstr ""
+
+#: .\order_app\models.py:80
+msgid "Order Item"
+msgstr ""
+
+#: .\order_app\models.py:81
+msgid "Order Items"
+msgstr ""
+
+#: .\order_app\tasks.py:15
+#, python-brace-format
+msgid "Order nr. {order.id}"
+msgstr ""
+
+#: .\order_app\tasks.py:16
+#, python-brace-format
+msgid ""
+"Dear {order.first_name},\n"
+"\n"
+msgstr ""
+
+#: .\order_app\urls.py:9
+msgid "create/"
+msgstr ""
+
+#: .\payment_app\apps.py:8
+msgid "payment"
+msgstr ""
+
+#: .\payment_app\tasks.py:18
+#, python-brace-format
+msgid "My Shop – Invoice no. {order.id}"
+msgstr ""
+
+#: .\payment_app\tasks.py:19
+msgid "Please, find attached the invoice for your recent purchase."
+msgstr ""
+
+#: .\payment_app\urls.py:10
+msgid "process/"
+msgstr ""
+
+#: .\payment_app\urls.py:11
+msgid "canceled/"
+msgstr ""
+
+#: .\payment_app\urls.py:12
+msgid "completed/"
+msgstr ""
+
+#: .\shop_app\apps.py:8
+msgid "shop"
+msgstr ""
+
+#: .\shop_app\models.py:8 .\shop_app\models.py:32
+msgid "name"
+msgstr ""
+
+#: .\shop_app\models.py:9 .\shop_app\models.py:33
+msgid "slug"
+msgstr ""
+
+#: .\shop_app\models.py:17
+msgid "Category"
+msgstr ""
+
+#: .\shop_app\models.py:18 .\templates\shop\product\list.html:12
+msgid "Categories"
+msgstr ""
+
+#: .\shop_app\models.py:31
+msgid "category"
+msgstr ""
+
+#: .\shop_app\models.py:34
+msgid "image"
+msgstr ""
+
+#: .\shop_app\models.py:35
+msgid "description"
+msgstr ""
+
+#: .\shop_app\models.py:39
+msgid "available"
+msgstr ""
+
+#: .\shop_app\models.py:51 .\templates\admin\orders\order\detail.html:72
+#: .\templates\cart\detail.html:15 .\templates\orders\order\pdf.html:23
+#: .\templates\payment\process.html:13
+msgid "Product"
+msgstr ""
+
+#: .\shop_app\models.py:52 .\templates\shop\product\list.html:7
+#: .\templates\shop\product\list.html:25
+msgid "Products"
+msgstr ""
+
+#: .\templates\admin\orders\order\detail.html:10
+msgid "Home"
+msgstr ""
+
+#: .\templates\admin\orders\order\detail.html:13
+msgid "Detail"
+msgstr ""
+
+#: .\templates\admin\orders\order\detail.html:23
+msgid "Print order"
+msgstr ""
+
+#: .\templates\admin\orders\order\detail.html:29
+msgid "Created"
+msgstr ""
+
+#: .\templates\admin\orders\order\detail.html:33
+msgid "Customer"
+msgstr ""
+
+#: .\templates\admin\orders\order\detail.html:37
+msgid "E-mail"
+msgstr ""
+
+#: .\templates\admin\orders\order\detail.html:48
+msgid "Total amount"
+msgstr ""
+
+#: .\templates\admin\orders\order\detail.html:52
+msgid "Status"
+msgstr ""
+
+#: .\templates\admin\orders\order\detail.html:53
+#: .\templates\orders\order\pdf.html:65
+msgid "Pending payment"
+msgstr ""
+
+#: .\templates\admin\orders\order\detail.html:56
+msgid "Stripe payment"
+msgstr ""
+
+#: .\templates\admin\orders\order\detail.html:73
+#: .\templates\cart\detail.html:19 .\templates\orders\order\pdf.html:24
+#: .\templates\payment\process.html:14
+msgid "Price"
+msgstr ""
+
+#: .\templates\admin\orders\order\detail.html:74
+#: .\templates\cart\detail.html:16 .\templates\orders\order\pdf.html:25
+#: .\templates\payment\process.html:15 .\templates\shop\product\detail.html:20
+msgid "Quantity"
+msgstr ""
+
+#: .\templates\admin\orders\order\detail.html:75
+#: .\templates\cart\detail.html:72 .\templates\orders\order\pdf.html:58
+#: .\templates\payment\process.html:16 .\templates\payment\process.html:52
+msgid "Total"
+msgstr ""
+
+#: .\templates\cart\detail.html:6 .\templates\cart\detail.html:10
+msgid "Your shopping cart"
+msgstr ""
+
+#: .\templates\cart\detail.html:14 .\templates\payment\process.html:12
+msgid "Image"
+msgstr ""
+
+#: .\templates\cart\detail.html:17 .\templates\cart\detail.html:43
+msgid "Remove"
+msgstr ""
+
+#: .\templates\cart\detail.html:18
+msgid "Unit price"
+msgstr ""
+
+#: .\templates\cart\detail.html:37
+msgid "Update"
+msgstr ""
+
+#: .\templates\cart\detail.html:55 .\templates\orders\order\pdf.html:41
+#: .\templates\payment\process.html:34
+msgid "Subtotal"
+msgstr ""
+
+#: .\templates\cart\detail.html:62 .\templates\orders\order\pdf.html:49
+#: .\templates\payment\process.html:43
+msgid "off"
+msgstr ""
+
+#: .\templates\cart\detail.html:81
+msgid "People who bought this also bought:"
+msgstr ""
+
+#: .\templates\cart\detail.html:97
+msgid "Apply a coupon:"
+msgstr ""
+
+#: .\templates\cart\detail.html:99
+msgid "Code"
+msgstr ""
+
+#: .\templates\cart\detail.html:101
+msgid "Apply"
+msgstr ""
+
+#: .\templates\cart\detail.html:106
+msgid "Delete a coupon"
+msgstr ""
+
+#: .\templates\cart\detail.html:111
+msgid "Continue shopping"
+msgstr ""
+
+#: .\templates\cart\detail.html:113 .\templates\orders\order\create.html:5
+#: .\templates\orders\order\create.html:9
+msgid "Checkout"
+msgstr ""
+
+#: .\templates\orders\order\create.html:11
+msgid "Your order"
+msgstr ""
+
+#: .\templates\orders\order\create.html:26
+msgid "Total:"
+msgstr ""
+
+#: .\templates\orders\order\create.html:30
+msgid "Place order"
+msgstr ""
+
+#: .\templates\orders\order\created.html:5
+#: .\templates\orders\order\created.html:9
+msgid "Thank you"
+msgstr ""
+
+#: .\templates\orders\order\created.html:10
+msgid "Your order has been successfully completed. Your order number is"
+msgstr ""
+
+#: .\templates\orders\order\pdf.html:5
+msgid "My Shop"
+msgstr ""
+
+#: .\templates\orders\order\pdf.html:7
+msgid "Invoice no."
+msgstr ""
+
+#: .\templates\orders\order\pdf.html:12
+msgid "Bill to"
+msgstr ""
+
+#: .\templates\orders\order\pdf.html:19
+msgid "Items bought"
+msgstr ""
+
+#: .\templates\orders\order\pdf.html:26
+msgid "Cost"
+msgstr ""
+
+#: .\templates\orders\order\pdf.html:65
+msgid "Paid"
+msgstr ""
+
+#: .\templates\payment\canceled.html:4
+msgid "Payment canceled"
+msgstr ""
+
+#: .\templates\payment\canceled.html:7
+msgid "Your payment has not been processed"
+msgstr ""
+
+#: .\templates\payment\canceled.html:8
+msgid "There was a problem processing your payment."
+msgstr ""
+
+#: .\templates\payment\completed.html:4
+msgid "Payment successful"
+msgstr ""
+
+#: .\templates\payment\completed.html:7
+msgid "Your payment was successful"
+msgstr ""
+
+#: .\templates\payment\completed.html:8
+msgid "Your payment has been processed successfully."
+msgstr ""
+
+#: .\templates\payment\process.html:5
+msgid "Pay your order"
+msgstr ""
+
+#: .\templates\payment\process.html:8
+msgid "Order summary"
+msgstr ""
+
+#: .\templates\payment\process.html:58
+msgid "Pay now"
+msgstr ""
+
+#: .\templates\shop\base.html:18
+msgid "Language"
+msgstr ""
+
+#: .\templates\shop\base.html:35
+msgid "Your cart:"
+msgstr ""
+
+#: .\templates\shop\base.html:37
+msgid "item"
+msgstr ""
+
+#: .\templates\shop\base.html:41
+msgid "Your cart is empty."
+msgstr ""
+
+#: .\templates\shop\product\detail.html:43
+msgid "Add to cart"
+msgstr ""
+
+#: .\templates\shop\product\detail.html:50
+msgid "People who bought this also bought"
+msgstr ""
