@@ -10,8 +10,8 @@
   </head>
   <body>
     <div id="header">
-      <a href="/" class="logo">Bjørk</a>
-        {% get_current_language as LANGUAGE_CODE %}
+      {% get_current_language as LANGUAGE_CODE %}
+      <a href="/{{LANGUAGE_CODE}}/" class="logo">Bjørk</a>
       {% get_available_languages as LANGUAGES %}
       {% get_language_info_list for LANGUAGES as languages %}
       <div class="languages">

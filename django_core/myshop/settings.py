@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', 'web']
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'coupon_app.apps.CouponAppConfig',
     'easy_thumbnails',
     'rosetta',
+
 ]
 
 MIDDLEWARE = [
@@ -109,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -121,6 +123,8 @@ LANGUAGES = [
     ('en', _('English')),
     ('ru', _('Russian')),
 ]
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
@@ -161,3 +165,5 @@ STRIPE_WEBHOOK_SECRET = 'whsec_68c4a4df81109fe4efd2ccc3fa9310e752169c1bc87ddfd63
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 REDIS_DB = 1
+
+

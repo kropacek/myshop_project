@@ -12,7 +12,7 @@
     <h3>{% trans "Categories" %}</h3>
     <ul>
       <li {% if not category %}class="selected"{% endif %}>
-        <a href="{% url "shop_app:product_list" %}">All</a>
+        <a href="{% url "shop_app:product_list" %}">{% trans "All" %}</a>
       </li>
       {% for c in categories %}
         <li {% if category.slug == c.slug %}class="selected"{% endif %}>

@@ -23,8 +23,6 @@ from django.utils.translation import gettext_lazy as _
 
 from payment_app import webhooks
 
-
-
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path(_('cart/'), include('cart_app.urls', namespace='cart_app')),
@@ -38,7 +36,6 @@ urlpatterns = i18n_patterns(
 urlpatterns += [
     path('payment/webhook/', webhooks.stripe_webhook, name='stripe-webhook'),
 ]
-
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

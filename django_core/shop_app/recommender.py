@@ -25,7 +25,6 @@ class Recommender:
                               with_id)
 
     def suggest_products_for(self, products, max_result=6):
-
         products_ids = [p.id for p in products]
 
         if len(products_ids) == 1:

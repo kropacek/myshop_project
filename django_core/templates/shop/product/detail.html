@@ -1,6 +1,7 @@
 {% extends "shop/base.html" %}
 {% load static %}
 {% load i18n %}
+{% load l10n %}
 
 {% block title %}
   {{ product.name }}
@@ -15,7 +16,12 @@
         {{ product.category }}
       </a>
     </h2>
-    <p class="price">${{ product.price }}</p>
+
+    <p class="price">
+        {% localize on %}
+            ${{ product.price }}
+        {% endlocalize %}
+    </p>
     <form action="{% url "cart_app:cart_add" product.id %}" method="post">
         <label for="id_quantity">{% trans "Quantity" %}:</label> <select name="quantity" id="id_quantity">
         <option value="1" selected>1</option>
