@@ -2,7 +2,7 @@ from django.urls import path
 from django.utils.translation import gettext_lazy as _
 
 from .views import payment_process, payment_canceled, payment_completed
-from .webhooks import stripe_webhook
+
 
 app_name = 'payment_app'
 

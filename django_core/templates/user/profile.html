@@ -1,0 +1,11 @@
+{% extends "shop/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Profile" %}{% endblock %}
+{% block content %}
+    <h1>{% trans "Profile" %}</h1>
+    <h2>{% trans "First name" %}: {{ user.first_name }}</h2>
+    <h2>{% trans "Second name" %}: {{ user.second_name }}</h2>
+    <h2>{% trans "Email" %}: {{ user.email }}</h2>
+    <h2>{% trans "Date of birth" %}: {{ user.date_of_birth }}</h2>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "shop/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Log-in" %}{% endblock %}
+{% block content %}
+    <h1>{% trans "Log-in" %}</h1>
+    <p>
+        {% trans "Please, use the following form to log-in." %}
+        {% trans "If you don't have an account" %}
+        <a href="{% url "user_app:registration_view" %}">{% trans "register here" %}</a>.
+    </p>
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="{% trans "Log in" %}"></p>
+    </form>
+{% endblock %}

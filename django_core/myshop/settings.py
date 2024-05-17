@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'order_app.apps.OrderAppConfig',
     'payment_app.apps.PaymentAppConfig',
     'coupon_app.apps.CouponAppConfig',
+    'user_app.apps.UserAppConfig',
     'easy_thumbnails',
     'rosetta',
 
@@ -167,3 +168,9 @@ REDIS_PORT = 6379
 REDIS_DB = 1
 
 
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+
+AUTH_USER_MODEL = "user_app.CustomUser"
