@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import PasswordChangeForm
+
 from .models import CustomUser
 from django.utils.translation import gettext_lazy as _
 
@@ -40,3 +42,21 @@ class EditForm(forms.ModelForm):
         labels = {'first_name': _('First name'),
                   'second_name': _('Second name'),
                   'date_of_birth': _('Date of birth'), }
+        widgets = {'date_of_birth': forms.NumberInput(attrs={'type': 'date'})}
+
+
+class CustomPasswordChangeForm(PasswordChangeForm):
+
+    def __init__(self, *args, **kwargs):
+        super(PasswordChangeForm, self).__init__(*args, **kwargs)
+        self.fields['old_password'].help_text = ''
+        self.fields['new_password1'].help_text = ''
+        self.fields['new_password2'].help_text = ''
+
+
+class PasswordResetForm(forms.Form):
+    email = forms.EmailField(
+        label=_("Email"),
+        max_length=254,
+        widget=forms.EmailInput(attrs={"autocomplete": "email"}),
+    )

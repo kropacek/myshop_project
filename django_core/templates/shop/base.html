@@ -7,27 +7,35 @@
     <meta charset="utf-8" />
     <title>{% block title %}Bjørk{% endblock %}</title>
     <link href="{% static "css/base.css" %}" rel="stylesheet">
+    <style>{% block style %}{% endblock %}</style>
   </head>
   <body>
     <div id="header">
-      {% get_current_language as LANGUAGE_CODE %}
-      <a href="/{{LANGUAGE_CODE}}/" class="logo">Bjørk</a>
-      {% get_available_languages as LANGUAGES %}
-      {% get_language_info_list for LANGUAGES as languages %}
-      <div class="languages">
-        <p>{% trans "Language" %}:</p>
-        <ul class="languages">
-          {% for language in languages %}
-            <li>
-              <a href="/{{ language.code }}/"
-              {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
-                {{ language.name_local }}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
+          {% get_current_language as LANGUAGE_CODE %}
+          <a href="/{{LANGUAGE_CODE}}/" class="logo">Bjørk</a>
+
+          <ul class="h-menu">
+              <li class="h-menu-item">
+                  <a href="{% url "user_app:profile_view" %}" class="profile">
+                      {% if request.user.is_authenticated %}
+                          {% trans "Profile" %}
+                      {% else %}
+                          {% trans "Log in" %}
+                      {% endif %}
+                  </a>
+              </li>
+              <li class="h-menu-item">
+                  <form id="languageForm">
+                    <label for="languageSelect"></label>
+                    <select id="languageSelect" class="language-select" name="languageSelect" onchange="redirectToLanguage()">
+                      <option value="/en/" {% if 'en' == LANGUAGE_CODE %}selected{% endif %}>Eng</option>
+                      <option value="/ru/" {% if 'ru' == LANGUAGE_CODE %}selected{% endif %}>Rus</option>
+                    </select>
+                  </form>
+              </li>
+          </ul>
+        </div>
+
     <div id="subheader">
       <div class="cart">
         {% with total_items=cart|length %}
@@ -43,9 +51,18 @@
         {% endwith %}
       </div>
     </div>
+
     <div id="content">
       {% block content %}
       {% endblock %}
     </div>
+
+  <script>
+    function redirectToLanguage() {
+        const select = document.getElementById('languageSelect');
+        const selectedLanguage = select.value;
+        window.location.href = selectedLanguage;
+    }
+</script>
   </body>
 </html>

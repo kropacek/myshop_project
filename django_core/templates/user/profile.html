@@ -1,11 +1,41 @@
 {% extends "shop/base.html" %}
+{% load static %}
 {% load i18n %}
 
 {% block title %}{% trans "Profile" %}{% endblock %}
+
+{% block style %}
+    body {
+        background: url({% static "img/profile_back.jpg" %}) no-repeat center fixed;
+        background-size: cover;
+    }
+{% endblock %}
+
 {% block content %}
-    <h1>{% trans "Profile" %}</h1>
-    <h2>{% trans "First name" %}: {{ user.first_name }}</h2>
-    <h2>{% trans "Second name" %}: {{ user.second_name }}</h2>
-    <h2>{% trans "Email" %}: {{ user.email }}</h2>
-    <h2>{% trans "Date of birth" %}: {{ user.date_of_birth }}</h2>
+    <div class="wrapper">
+        <div class="profile-container">
+        <div class="profile-header">{% trans "Profile" %}</div>
+        <div class="profile-details">
+            <div>
+                <label>{% trans "Email" %}:</label>
+                <span>{{ user.email }}</span>
+            </div>
+            <div>
+                <label>{% trans "First name" %}:</label>
+                <span>{{ user.first_name }}</span>
+            </div>
+            <div>
+                <label>{% trans "Second name" %}:</label>
+                <span>{{ user.second_name }}</span>
+            </div>
+            <div>
+                <label>{% trans "Date of birth" %}:</label>
+                <span>{{ user.date_of_birth }}</span>
+            </div>
+            <a href="{% url "user_app:edit_view" %}" class="edit-profile-button">{% trans "Edit profile" %}</a>
+            <a href="{% url "user_app:password_change" %}" class="edit-profile-button">{% trans "Change password" %}</a>
+            <a href="{% url "user_app:logout_view" %}" class="edit-profile-button">{% trans "Logout" %}</a>
+        </div>
+    </div>
+</div>
 {% endblock %}
