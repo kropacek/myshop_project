@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-14 22:31+0300\n"
-"PO-Revision-Date: 2024-05-14 19:31+0000\n"
-"Last-Translator:   <>\n"
+"POT-Creation-Date: 2024-05-19 15:25+0300\n"
+"PO-Revision-Date: 2024-05-19 12:34+0000\n"
+"Last-Translator: Николай  <nikolay_och@mail.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,11 @@ msgstr "количество"
 #: .\cart_app\forms.py:8
 msgid "override"
 msgstr "перезаписать"
+
+#: .\cart_app\views.py:42 .\order_app\views.py:26
+#: .\templates\shop\base.html:49
+msgid "Your cart is empty."
+msgstr "Ваша корзина пуста."
 
 #: .\coupon_app\apps.py:8 .\order_app\models.py:29
 #: .\templates\cart\detail.html:61 .\templates\orders\order\pdf.html:48
@@ -73,67 +78,82 @@ msgstr "применить/"
 msgid "delete/"
 msgstr "удалить/"
 
-#: .\myshop\settings.py:121
+#: .\myshop\settings.py:126
 msgid "English"
 msgstr "Английский"
 
-#: .\myshop\settings.py:122
+#: .\myshop\settings.py:127
 msgid "Russian"
 msgstr "Русский"
 
-#: .\myshop\urls.py:30
+#: .\myshop\urls.py:28
 msgid "cart/"
 msgstr "корзина/"
 
-#: .\myshop\urls.py:31
+#: .\myshop\urls.py:29
 msgid "orders/"
 msgstr "заказы/"
 
-#: .\myshop\urls.py:32
+#: .\myshop\urls.py:30
 msgid "payment/"
 msgstr "оплата/"
 
-#: .\myshop\urls.py:33
+#: .\myshop\urls.py:31
 msgid "coupons/"
 msgstr "купоны/"
+
+#: .\myshop\urls.py:32
+msgid "user/"
+msgstr "пользователь/"
 
 #: .\order_app\apps.py:8
 msgid "order"
 msgstr "заказ"
 
-#: .\order_app\forms.py:14
+#: .\order_app\forms.py:13 .\templates\user\profile.html:24
+#: .\user_app\forms.py:20 .\user_app\forms.py:42
 msgid "First name"
 msgstr "Имя"
 
-#: .\order_app\forms.py:15
-msgid "Last name"
+#: .\order_app\forms.py:14 .\templates\user\profile.html:28
+#: .\user_app\forms.py:21 .\user_app\forms.py:43
+msgid "Second name"
 msgstr "Фамилия"
 
-#: .\order_app\forms.py:16
+#: .\order_app\forms.py:15 .\templates\orders\order\list.html:26
+#: .\templates\user\profile.html:20 .\user_app\forms.py:9
+#: .\user_app\forms.py:22 .\user_app\forms.py:62
 msgid "Email"
 msgstr "Электронная почта"
 
+#: .\order_app\forms.py:16 .\templates\orders\order\list.html:30
+#: .\templates\user\profile.html:36 .\user_app\forms.py:45
+#: .\user_app\models.py:18
+msgid "City"
+msgstr "Город"
+
 #: .\order_app\forms.py:17 .\templates\admin\orders\order\detail.html:41
+#: .\templates\orders\order\list.html:34 .\templates\user\profile.html:40
+#: .\user_app\forms.py:46 .\user_app\models.py:19
 msgid "Address"
 msgstr "Адрес"
 
-#: .\order_app\forms.py:18
+#: .\order_app\forms.py:18 .\templates\orders\order\list.html:38
+#: .\templates\user\profile.html:44 .\user_app\forms.py:47
+#: .\user_app\models.py:20
 msgid "Postal code"
 msgstr "Почтовый индекс"
-
-#: .\order_app\forms.py:19
-msgid "City"
-msgstr "Город"
 
 #: .\order_app\models.py:12
 msgid "first_name"
 msgstr "имя"
 
 #: .\order_app\models.py:13
-msgid "last_name"
+#| msgid "last_name"
+msgid "second_name"
 msgstr "фамилия"
 
-#: .\order_app\models.py:14
+#: .\order_app\models.py:14 .\user_app\models.py:12
 msgid "email"
 msgstr "электронная почта"
 
@@ -171,6 +191,7 @@ msgid "Order"
 msgstr "Заказ"
 
 #: .\order_app\models.py:37 .\templates\admin\orders\order\detail.html:11
+#: .\templates\user\profile.html:47
 msgid "Orders"
 msgstr "Заказы"
 
@@ -209,6 +230,15 @@ msgstr "Дорогой {order.first_name},\n"
 #: .\order_app\urls.py:9
 msgid "create/"
 msgstr "создать/"
+
+#: .\order_app\urls.py:10
+msgid "list/"
+msgstr "список/"
+
+#: .\order_app\urls.py:11
+#| msgid "Print order"
+msgid "<int:order_id>/"
+msgstr ""
 
 #: .\payment_app\apps.py:8
 msgid "payment"
@@ -297,6 +327,7 @@ msgid "Print order"
 msgstr "Заказ на печать"
 
 #: .\templates\admin\orders\order\detail.html:29
+#: .\templates\orders\order\list.html:42
 msgid "Created"
 msgstr "Создан"
 
@@ -313,11 +344,11 @@ msgid "Total amount"
 msgstr "Общее число"
 
 #: .\templates\admin\orders\order\detail.html:52
+#: .\templates\orders\order\list.html:50
 msgid "Status"
 msgstr "Статус"
 
 #: .\templates\admin\orders\order\detail.html:53
-#: .\templates\orders\order\pdf.html:65
 msgid "Pending payment"
 msgstr "Ожидающий платеж"
 
@@ -333,7 +364,7 @@ msgstr "Цена"
 
 #: .\templates\admin\orders\order\detail.html:74
 #: .\templates\cart\detail.html:16 .\templates\orders\order\pdf.html:25
-#: .\templates\payment\process.html:15 .\templates\shop\product\detail.html:20
+#: .\templates\payment\process.html:15 .\templates\shop\product\detail.html:26
 msgid "Quantity"
 msgstr "Количество"
 
@@ -423,9 +454,28 @@ msgstr "Спасибо"
 msgid "Your order has been successfully completed. Your order number is"
 msgstr "Ваш заказ успешно выполнен. Номер вашего заказа"
 
+#: .\templates\orders\order\list.html:5 .\templates\shop\base.html:21
+#: .\templates\user\profile.html:5 .\templates\user\profile.html:17
+msgid "Profile"
+msgstr "Профиль"
+
+#: .\templates\orders\order\list.html:17
+#| msgid "Orders"
+msgid "Orders list"
+msgstr "Список заказов"
+
+#: .\templates\orders\order\list.html:22
+#| msgid "Order"
+msgid "Order id"
+msgstr "Id заказа"
+
+#: .\templates\orders\order\list.html:46 .\templates\orders\order\pdf.html:26
+msgid "Cost"
+msgstr "Цена"
+
 #: .\templates\orders\order\pdf.html:5
-msgid "My Shop"
-msgstr "Мой Магазин"
+msgid "Bjørk"
+msgstr "Bjørk"
 
 #: .\templates\orders\order\pdf.html:7
 msgid "Invoice no."
@@ -439,13 +489,14 @@ msgstr "Счет для"
 msgid "Items bought"
 msgstr "Купленные товары"
 
-#: .\templates\orders\order\pdf.html:26
-msgid "Cost"
-msgstr "Цена"
-
 #: .\templates\orders\order\pdf.html:65
 msgid "Paid"
 msgstr "Оплачено"
+
+#: .\templates\orders\order\pdf.html:65
+#| msgid "canceled/"
+msgid "Canceled"
+msgstr "Отменен"
 
 #: .\templates\payment\canceled.html:4
 msgid "Payment canceled"
@@ -483,26 +534,275 @@ msgstr "Краткое описание заказа"
 msgid "Pay now"
 msgstr "Заплатить сейчас"
 
-#: .\templates\shop\base.html:18
-msgid "Language"
-msgstr "Язык"
+#: .\templates\shop\base.html:23 .\templates\user\login.html:28
+msgid "Log in"
+msgstr "Войти"
 
-#: .\templates\shop\base.html:35
+#: .\templates\shop\base.html:43
 msgid "Your cart:"
 msgstr "Ваша корзина:"
 
-#: .\templates\shop\base.html:37
+#: .\templates\shop\base.html:45
 msgid "item"
 msgstr "товар"
 
-#: .\templates\shop\base.html:41
-msgid "Your cart is empty."
-msgstr "Ваша корзина пуста."
-
-#: .\templates\shop\product\detail.html:43
+#: .\templates\shop\product\detail.html:49
 msgid "Add to cart"
 msgstr "Добавить в корзину"
 
-#: .\templates\shop\product\detail.html:50
+#: .\templates\shop\product\detail.html:56
 msgid "People who bought this also bought"
 msgstr "Люди, которые купили это, тоже купили:"
+
+#: .\templates\shop\product\list.html:15
+msgid "All"
+msgstr "Все"
+
+#: .\templates\user\edit.html:5
+msgid "Edit your profile"
+msgstr "Редактировать профиль"
+
+#: .\templates\user\edit.html:19
+msgid "Editing the profile"
+msgstr "Редактирование профиля"
+
+#: .\templates\user\edit.html:29
+msgid "Save changes"
+msgstr "Сохранить изменения"
+
+#: .\templates\user\login.html:12 .\templates\user\login.html:18
+msgid "Log-in"
+msgstr "Вход в систему"
+
+#: .\templates\user\login.html:31
+#| msgid "description"
+msgid "Registration"
+msgstr "Регистрация"
+
+#: .\templates\user\login.html:32
+msgid "Forgot your password"
+msgstr "Забыли пароль"
+
+#: .\templates\user\password-change-done.html:4
+#: .\templates\user\password-change-done.html:6
+msgid "Password changed"
+msgstr "Пароль изменен"
+
+#: .\templates\user\password-change-done.html:7
+#| msgid "Your payment has been processed successfully."
+msgid "Your password has been successfully changed"
+msgstr "Ваш пароль был успешно изменен"
+
+#: .\templates\user\password-change.html:12
+#: .\templates\user\password-change.html:17
+msgid "Change your password"
+msgstr "Измените свой пароль"
+
+#: .\templates\user\password-change.html:27
+msgid "Change"
+msgstr "Изменить"
+
+#: .\templates\user\password-reset-complete.html:4 .\user_app\tasks.py:12
+msgid "Password reset"
+msgstr "Сброс пароля"
+
+#: .\templates\user\password-reset-complete.html:6
+msgid "Password set"
+msgstr "Установка пароля"
+
+#: .\templates\user\password-reset-complete.html:7
+#| msgid "Your payment has not been processed"
+msgid "Your password has been set"
+msgstr "Ваш пароль был установлен"
+
+#: .\templates\user\password-reset-complete.html:8
+msgid "You can"
+msgstr "Вы можете"
+
+#: .\templates\user\password-reset-complete.html:8
+msgid "log in now"
+msgstr "авторизоваться сейчас"
+
+#: .\templates\user\password-reset-done.html:4
+#: .\templates\user\password-reset-done.html:6
+#: .\templates\user\password-reset-token.html:12
+#: .\templates\user\password-reset-token.html:19
+#: .\templates\user\password-reset.html:12
+#: .\templates\user\password-reset.html:17
+msgid "Reset your password"
+msgstr "Сбросьте свой пароль"
+
+#: .\templates\user\password-reset-done.html:7
+msgid "We've emailed you instructions for setting your password"
+msgstr ""
+"Мы отправили вам по электронной почте инструкции по установке вашего пароля"
+
+#: .\templates\user\password-reset-done.html:8
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with"
+msgstr ""
+"Если вы не получили электронное письмо, пожалуйста, убедитесь, что вы ввели "
+"адрес, по которому регистрировались"
+
+#: .\templates\user\password-reset-email.html:3
+msgid "Someone asked for password reset for email"
+msgstr "Кто-то попросил сбросить пароль для электронной почты"
+
+#: .\templates\user\password-reset-email.html:4
+msgid "Follow the"
+msgstr "Следуйте"
+
+#: .\templates\user\password-reset-email.html:4
+msgid "link"
+msgstr "ссылке"
+
+#: .\templates\user\password-reset-token.html:29
+msgid "Change my password"
+msgstr "Изменить пароль"
+
+#: .\templates\user\password-reset-token.html:34
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset"
+msgstr ""
+"Ссылка для сброса пароля была неверной, возможно, потому, что она уже "
+"использовалась. Пожалуйста, запросите новый сброс пароля"
+
+#: .\templates\user\password-reset.html:27
+msgid "Send"
+msgstr "Отправить"
+
+#: .\templates\user\profile.html:32 .\user_app\forms.py:44
+msgid "Date of birth"
+msgstr "Дата рождения"
+
+#: .\templates\user\profile.html:49
+#| msgid "Unit price"
+msgid "Edit profile"
+msgstr "Редактировать профиль"
+
+#: .\templates\user\profile.html:50
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: .\templates\user\profile.html:51
+msgid "Logout"
+msgstr "Выход из системы"
+
+#: .\templates\user\registration.html:12 .\templates\user\registration.html:18
+#| msgid "Delete a coupon"
+msgid "Create an account"
+msgstr "Создать учетную запись"
+
+#: .\templates\user\registration.html:28
+msgid "Create my account"
+msgstr "Создать учетную запись"
+
+#: .\user_app\forms.py:10 .\user_app\forms.py:14
+msgid "Password"
+msgstr "Пароль"
+
+#: .\user_app\forms.py:15
+msgid "Re-enter password"
+msgstr "Повторно введите пароль"
+
+#: .\user_app\forms.py:27
+msgid "Passwords don't match."
+msgstr "Пароли не совпадают."
+
+#: .\user_app\forms.py:34
+msgid "Email already in use."
+msgstr "Электронная почта уже используется."
+
+#: .\user_app\managers.py:15
+msgid "The Email must be set"
+msgstr "Необходимо указать адрес электронной почты"
+
+#: .\user_app\managers.py:31
+msgid "Superuser must have is_staff=True."
+msgstr "У суперпользователя должно быть значение is_staff=True."
+
+#: .\user_app\managers.py:33
+msgid "Superuser must have is_superuser=True."
+msgstr "У суперпользователя должно быть значение is_staff=True."
+
+#: .\user_app\models.py:14
+#| msgid "First name"
+msgid "first name"
+msgstr "имя"
+
+#: .\user_app\models.py:15
+#| msgid "Last name"
+msgid "second name"
+msgstr "фамилия"
+
+#: .\user_app\models.py:16
+msgid "date of birth"
+msgstr "дата рождения"
+
+#: .\user_app\models.py:28
+msgid "User"
+msgstr "Пользователь"
+
+#: .\user_app\models.py:29
+msgid "Users"
+msgstr "Пользователи"
+
+#: .\user_app\urls.py:13
+msgid "login/"
+msgstr "авторизация/"
+
+#: .\user_app\urls.py:14
+msgid "registration/"
+msgstr "регистрация/"
+
+#: .\user_app\urls.py:15
+msgid "profile/"
+msgstr "профиль/"
+
+#: .\user_app\urls.py:16
+msgid "edit/"
+msgstr "редактирование/"
+
+#: .\user_app\urls.py:17
+msgid "logout"
+msgstr "выход-из-системы"
+
+#: .\user_app\views.py:34
+#| msgid "Payment successful"
+msgid "Authenticated successfully"
+msgstr "Успешно прошла проверку подлинности"
+
+#: .\user_app\views.py:37
+msgid "Disabled account"
+msgstr "Отключенная учетная запись"
+
+#: .\user_app\views.py:39
+#| msgid "valid to"
+msgid "Invalid login"
+msgstr "Неверный логин"
+
+#: .\user_app\views.py:61
+#| msgid "Payment successful"
+msgid "Profile created successfully"
+msgstr "Профиль успешно создан"
+
+#: .\user_app\views.py:65
+msgid "Error creating profile"
+msgstr "Ошибка при создании профиля"
+
+#: .\user_app\views.py:96
+#| msgid "Payment successful"
+msgid "Profile updated successfully"
+msgstr "Профиль успешно обновлен"
+
+#: .\user_app\views.py:100
+msgid "Error updating your profile"
+msgstr "Ошибка при обновлении вашего профиля"
+
+#~ msgid "My Shop"
+#~ msgstr "Мой Магазин"
+
+#~ msgid "Language"
+#~ msgstr "Язык"

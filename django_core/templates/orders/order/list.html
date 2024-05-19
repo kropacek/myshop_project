@@ -1,0 +1,62 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Profile" %}{% endblock %}
+
+{% block style %}
+    body {
+        background: url({% static "img/profile_back.jpg" %}) no-repeat center fixed;
+        background-size: cover;
+    }
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="orders-container">
+        <div class="orders-header">{% trans "Orders list" %}</div>
+        {% for order in orders %}
+            <a href="{% url "orders_app:order_detail" order_id=order.id %}" class="order">
+                <div class="order-details">
+                    <div>
+                        <label>{% trans "Order id" %}:</label>
+                        <span>{{ order.id }}</span>
+                    </div>
+                    <div>
+                        <label>{% trans "Email" %}:</label>
+                        <span>{{ order.email }}</span>
+                    </div>
+                    <div>
+                        <label>{% trans "City" %}:</label>
+                        <span>{{ order.city }}</span>
+                    </div>
+                    <div>
+                        <label>{% trans "Address" %}:</label>
+                        <span>{{ order.address }}</span>
+                    </div>
+                    <div>
+                        <label>{% trans "Postal code" %}:</label>
+                        <span>{{ order.postal_code }}</span>
+                    </div>
+                    <div>
+                        <label>{% trans "Created" %}:</label>
+                        <span>{{ order.created }}</span>
+                    </div>
+                    <div>
+                        <label>{% trans "Cost" %}:</label>
+                        <span>${{ order.get_total_cost }}</span>
+                    </div>
+                    <div>
+                        <label>{% trans "Status" %}:</label>
+                        {% if order.paid %}
+                            <span>✅</span>
+                        {% else %}
+                            <span>❌</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

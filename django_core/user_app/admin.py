@@ -12,7 +12,8 @@ class UserAdminModel(UserAdmin):
     list_display = ['email', 'first_name', 'second_name']
     list_filter = ("email", "is_staff", "is_active",)
     fieldsets = (
-        (None, {"fields": ("email", "password", "first_name", 'second_name', "date_of_birth")}),
+        (None, {"fields": ("email", "password", "first_name", 'second_name', "date_of_birth", "city", "address",
+                           'postal_code')}),
         ("Permissions", {"fields": ("is_staff", "is_active", "groups", "user_permissions")}),
     )
     add_fieldsets = (

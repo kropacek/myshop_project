@@ -10,7 +10,7 @@ from coupon_app.models import Coupon
 
 class Order(models.Model):
     first_name = models.CharField(max_length=50, verbose_name=_('first_name'))
-    last_name = models.CharField(max_length=50, verbose_name=_('last_name'))
+    second_name = models.CharField(max_length=50, verbose_name=_('second_name'))
     email = models.EmailField(verbose_name=_('email'))
     address = models.CharField(max_length=250, verbose_name=_('address'))
     postal_code = models.CharField(max_length=20, verbose_name=_('postal_code'))

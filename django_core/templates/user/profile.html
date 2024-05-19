@@ -32,6 +32,20 @@
                 <label>{% trans "Date of birth" %}:</label>
                 <span>{{ user.date_of_birth }}</span>
             </div>
+            <div>
+                <label>{% trans "City" %}:</label>
+                <span>{{ user.city }}</span>
+            </div>
+            <div>
+                <label>{% trans "Address" %}:</label>
+                <span>{{ user.address }}</span>
+            </div>
+            <div>
+                <label>{% trans "Postal code" %}:</label>
+                <span>{{ user.postal_code }}</span>
+            </div>
+            <a href="{% url "orders_app:order_list" %}" class="edit-profile-button">{% trans "Orders" %}</a>
+            <div class="divider"></div>
             <a href="{% url "user_app:edit_view" %}" class="edit-profile-button">{% trans "Edit profile" %}</a>
             <a href="{% url "user_app:password_change" %}" class="edit-profile-button">{% trans "Change password" %}</a>
             <a href="{% url "user_app:logout_view" %}" class="edit-profile-button">{% trans "Logout" %}</a>

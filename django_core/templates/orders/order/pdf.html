@@ -2,7 +2,7 @@
 
 <html>
 <body>
-  <h1>{% trans "My Shop" %}</h1>
+  <h1>{% trans "Bjørk" %}</h1>
   <p>
     {% trans "Invoice no." %} {{ order.id }}<br>
     <span class="secondary">
@@ -62,7 +62,7 @@
   </table>
 
   <span class="{% if order.paid %}paid{% else %}pending{% endif %}">
-    {% if order.paid %}{% trans "Paid" %}{% else %}{% trans "Pending payment" %}{% endif %}
+    {% if order.paid %}{% trans "Paid" %}{% else %}{% trans "Canceled" %}{% endif %}
   </span>
 </body>
 </html>

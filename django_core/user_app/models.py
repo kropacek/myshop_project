@@ -15,6 +15,10 @@ class CustomUser(AbstractUser):
     second_name = models.CharField(max_length=30, null=True, verbose_name=_("second name"))
     date_of_birth = models.DateField(blank=True, null=True, verbose_name=_("date of birth"))
 
+    city = models.CharField(blank=True, max_length=256, null=True, verbose_name=_('City'))
+    address = models.CharField(blank=True, max_length=256, null=True, verbose_name=_('Address'))
+    postal_code = models.CharField(blank=True, max_length=9, null=True, verbose_name=_('Postal code'))
+
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["first_name"]
 

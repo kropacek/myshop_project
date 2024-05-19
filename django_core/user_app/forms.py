@@ -38,10 +38,13 @@ class RegistrationForm(forms.ModelForm):
 class EditForm(forms.ModelForm):
     class Meta:
         model = CustomUser
-        fields = ['first_name', 'second_name', 'date_of_birth']
+        fields = ['first_name', 'second_name', 'date_of_birth', 'city', 'address', 'postal_code']
         labels = {'first_name': _('First name'),
                   'second_name': _('Second name'),
-                  'date_of_birth': _('Date of birth'), }
+                  'date_of_birth': _('Date of birth'),
+                  'city': _('City'),
+                  'address': _('Address'),
+                  'postal_code': _('Postal code')}
         widgets = {'date_of_birth': forms.NumberInput(attrs={'type': 'date'})}
 
 
