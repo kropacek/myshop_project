@@ -177,5 +177,6 @@ ACCOUNT_USERNAME_REQUIRED = False
 
 AUTH_USER_MODEL = "user_app.CustomUser"
 
-
 LOGIN_URL = reverse_lazy('user_app:login_view')
+
+CELERY_TASK_ALWAYS_EAGER = True
