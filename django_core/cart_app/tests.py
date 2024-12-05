@@ -5,6 +5,7 @@ from types import SimpleNamespace
 from django.utils import timezone
 from django.test import TestCase, Client
 from django.urls import reverse
+from playwright.sync_api import sync_playwright
 
 from shop_app.models import Product, Category
 from order_app.models import Order
@@ -145,3 +146,85 @@ class IntegrationTests(TestCase):
 
         response = self.client.get(reverse('orders_app:order_list'))
         self.assertIn('orders', response.context)
+
+
+class EndToEndTests(TestCase):
+
+    # noinspection PyMethodMayBeStatic
+    def test_pdf_order(self):
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page()
+
+            # Открыть сайт
+            page.goto("http://localhost:8000/en/user/login/")
+
+            page.fill('input[name="email"]', "test@test.test")
+            page.fill('input[name="password"]', "test_password")
+            page.click('input[type="submit"][value="Log in"]')
+
+            page.click('a#order-a')
+            page.goto("http://127.0.0.1:8000/en/orders/1/")
+
+            assert "/en/orders/1/" in page.url
+
+            browser.close()
+
+    # noinspection PyMethodMayBeStatic
+    def test_order_payment(self):
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page()
+
+            # Открыть сайт
+            page.goto("http://localhost:8000/en/user/login/")
+
+            # Авторизация
+            page.fill('input[name="email"]', "test@test.test")
+            page.fill('input[name="password"]', "test_password")
+            page.click('input[type="submit"][value="Log in"]')
+
+            # Добавить товар в корзину
+            page.goto("http://localhost:8000/en/1/product-1/")
+            page.select_option('select[name="quantity"]', "1")
+            # Нажатие на кнопку "Add to cart"
+            page.click('input[type="submit"][value="Add to cart"]')
+
+            # Перейти к оформлению заказа
+            page.goto("http://localhost:8000/en/orders/create/")
+            page.fill('input[name="first_name"]', "TEST")
+            page.fill('input[name="second_name"]', "TESTTEST")
+            page.fill('input[name="email"]', "test@test.test")
+            page.fill('input[name="address"]', "Test Address")
+            page.fill('input[name="postal_code"]', "12345")
+            page.fill('input[name="city"]', "Test City")
+            page.click('input[type="submit"][value="Place order"]')
+
+            # Успешная оплата через Stripe
+            with page.expect_navigation():
+                page.click('input[type="submit"][value="Pay now"]')
+
+            page.locator('input#email').fill("test@test.test")
+            page.evaluate("document.querySelector('button[data-testid=\"card-accordion-item-button\"]').click()")
+
+
+            # Заполняем номер карты
+            page.locator("input#cardNumber").fill("4242424242424242")
+
+            # Заполняем дату истечения карты
+            page.locator("input#cardExpiry").fill("1234")
+
+            # Заполняем CVC
+            page.locator("input#cardCvc").fill("123")
+
+            # Заполняем Имя, фамилия
+            page.locator("input#billingName").fill("Test Test")
+
+
+            page.evaluate("document.querySelector('button[data-testid=\"hosted-payment-submit-button\"]').click()")
+            page.wait_for_timeout(10000)
+
+            assert "completed" in page.url
+
+
+            browser.close()

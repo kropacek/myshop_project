@@ -44,7 +44,7 @@
                 <label>{% trans "Postal code" %}:</label>
                 <span>{{ user.postal_code }}</span>
             </div>
-            <a href="{% url "orders_app:order_list" %}" class="edit-profile-button">{% trans "Orders" %}</a>
+            <a href="{% url "orders_app:order_list" %}" class="edit-profile-button" id="order-a">{% trans "Orders" %}</a>
             <div class="divider"></div>
             <a href="{% url "user_app:edit_view" %}" class="edit-profile-button">{% trans "Edit profile" %}</a>
             <a href="{% url "user_app:password_change" %}" class="edit-profile-button">{% trans "Change password" %}</a>

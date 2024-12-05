@@ -29,7 +29,7 @@
                 {% else %}{% static "img/no_image.png" %}{% endif %}">
               </a>
             </td>
-            <td>{{ product.name }}</td>
+            <td class="product-name">{{ product.name }}</td>
             <td>
               <form action="{% url "cart_app:cart_add" product.id %}" method="post">
                 {{ item.update_quantity_form.quantity }}
